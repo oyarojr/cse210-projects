@@ -11,13 +11,16 @@ class Program
         {
             Console.WriteLine("***********Welcome to the Journal Program************");
             Console.Write("What would you like to do?");
-            Console.WriteLine("");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
             Console.WriteLine("1.Write");
             Console.WriteLine("2.Display");
-            Console.WriteLine("3.");
-            Console.WriteLine("4.");
-            Console.WriteLine("5.");
+            Console.WriteLine("3.Save");
+            Console.WriteLine("4.Load");
+            Console.WriteLine("5.Quit");
+            Console.WriteLine(" ");
             string decision = Console.ReadLine();
+            Console.WriteLine(" ");
             int decishon = int.Parse(decision);
 
 
@@ -52,8 +55,12 @@ class Program
 
             else if (decishon == 3)
             {
-                // Console.Write("What is the name of the file?");
-                // string filename = Console.ReadLine();
+
+                Console.Write("What is the name of the file?");
+                string filename = Console.ReadLine();
+
+                myJournal.SaveToFile(filename);
+
                 // using (StreamWriter outputFile = new StreamWriter(filename))
                 // {
                 //     foreach (Entry ty in myJournal.GetEntries())
@@ -63,7 +70,18 @@ class Program
                 //         outputFile.WriteLine($"Input: {ty._entryText}");
                 //     }
                 // }
+                Console.WriteLine($"{filename} saved successfully");
+                Console.WriteLine("  ");
 
+            }
+
+            else if (decishon == 4)
+            {
+                Console.Write("What is the name of the file?");
+                string filename = Console.ReadLine();
+                Console.WriteLine("Loading..................");
+
+                myJournal.LoadFromFile(filename);
             }
             k = decishon;
         }

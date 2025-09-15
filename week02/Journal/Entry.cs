@@ -20,4 +20,9 @@ public class Entry
         // Console.WriteLine("************************************");
         Console.WriteLine("");
     }
+
+    public override string ToString()
+    {
+        return $"Date: {_date} | Prompt: {_promptText} | Entry: {_entryText}";
+    }
 }
