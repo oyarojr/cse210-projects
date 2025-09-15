@@ -9,6 +9,7 @@ class Program
         int k = 10;
         while (k != 5)
         {
+            Console.WriteLine(" ");
             Console.WriteLine("***********Welcome to the Journal Program************");
             Console.Write("What would you like to do?");
             Console.WriteLine(" ");

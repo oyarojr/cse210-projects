@@ -61,10 +61,10 @@ public class Journal
             string entry = parts[2];
 
             Console.WriteLine("____________________________________________________________");
-            Console.WriteLine("");
-            Console.WriteLine($"Date: {date}");
-            Console.WriteLine($"Prompt: {prompt}");
-            Console.WriteLine($"Entry: {entry}");
+            Console.WriteLine(" ");
+            Console.WriteLine($" {date}");
+            Console.WriteLine($" {prompt}");
+            Console.WriteLine($" {entry}");
         }
     }
 

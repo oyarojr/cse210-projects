@@ -23,6 +23,6 @@ public class Entry
 
     public override string ToString()
     {
-        return $"Date: {_date} | Prompt: {_promptText} | Entry: {_entryText}";
+        return $"Date: {_date} |Prompt: {_promptText} |Entry: {_entryText}";
     }
 }
