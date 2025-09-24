@@ -11,6 +11,10 @@ class Program
         int verse = 16;
         Reference newreference = new Reference(buk, chap, verse);
         Console.WriteLine($"{newreference.GetDisplayText()}");
+
+        Word newWord = new Word("do");
+        newWord.Hide();
+        Console.WriteLine($"{newWord.Display()}");
     }
 
 
