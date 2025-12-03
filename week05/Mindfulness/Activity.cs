@@ -1,55 +1,52 @@
-class Activity
-{
-    // Attributes
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Duration { get; set; }
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
-    // Constructor
+public class Activity
+{
+    protected string _name;
+    protected string _description;
+    protected int _duration;
+
     public Activity(string name, string description)
     {
-        Name = name;
-        Description = description;
+        _name = name;
+        _description = description;
     }
 
-    // Common methods
     public void DisplayStartingMessage()
     {
-        Console.WriteLine($"\nActivity: {Name}");
-        Console.WriteLine($"{Description}");
+        Console.WriteLine($"\nStarting {_name} Activity");
+        Console.WriteLine(_description);
         Console.Write("Enter duration in seconds: ");
-        Duration = int.Parse(Console.ReadLine() ?? "30");
+        _duration = int.Parse(Console.ReadLine());
         Console.WriteLine("Prepare to begin...");
         ShowSpinner(3);
     }
 
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("\nWell done! You have completed the activity.");
-        Console.WriteLine($"Activity: {Name}, Duration: {Duration} seconds");
+        Console.WriteLine("\nWell done!");
+        Console.WriteLine($"You completed the {_name} activity for {_duration} seconds.");
         ShowSpinner(3);
     }
 
     public void ShowSpinner(int seconds)
     {
-        string[] spinner = { "|", "/", "-", "\\" };
-        int i = 0;
-        DateTime end = DateTime.Now.AddSeconds(seconds);
-        while (DateTime.Now < end)
+        for (int i = 0; i < seconds; i++)
         {
-            Console.Write($"\r{spinner[i++ % spinner.Length]}");
-            Thread.Sleep(200);
+            Console.Write(".");
+            Thread.Sleep(1000);
         }
-        Console.Write("\r ");
+        Console.WriteLine();
     }
 
     public void ShowCountDown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.Write($"\r{i}...");
+            Console.WriteLine(i);
             Thread.Sleep(1000);
         }
-        Console.WriteLine();
     }
 }
