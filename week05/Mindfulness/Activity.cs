@@ -4,9 +4,9 @@ using System.Threading;
 
 public class Activity
 {
-    protected string _name;
-    protected string _description;
-    protected int _duration;
+    private string _name;
+    private string _description;
+    private int _duration;
 
     public Activity(string name, string description)
     {
@@ -16,7 +16,7 @@ public class Activity
 
     public void DisplayStartingMessage()
     {
-        Console.WriteLine($"\nStarting {_name} Activity");
+        Console.WriteLine($"Starting {_name} Activity");
         Console.WriteLine(_description);
         Console.Write("Enter duration in seconds: ");
         _duration = int.Parse(Console.ReadLine());
@@ -26,8 +26,8 @@ public class Activity
 
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("\nWell done!");
-        Console.WriteLine($"You completed the {_name} activity for {_duration} seconds.");
+        Console.WriteLine("Well done!");
+        Console.WriteLine($"You have completed the {_name} activity for {_duration} seconds.");
         ShowSpinner(3);
     }
 
@@ -49,4 +49,6 @@ public class Activity
             Thread.Sleep(1000);
         }
     }
+
+    public int GetDuration() => _duration;
 }
